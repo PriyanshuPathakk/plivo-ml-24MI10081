@@ -88,14 +88,4 @@ We proved that a significant portion of the baseline's poor performance wasn't j
 - **Final bpb:** **2.0819** (Down from baseline 2.3718)
 - **Total Improvement:** -0.2899 bpb
 
-### Why This Scores Well
-This submission demonstrates the exact iterative engineering cycle requested by the prompt:
-1. We identified that the baseline's learning rate and optimization strategy were fundamentally flawed for a 2,000-step constraint.
-2. We fixed the optimization loop (Run 1) and proved it worked.
-3. We attempted ambitious, highly-theoretical improvements (Pure-Python BPE).
-4. We watched the ambitious BPE attempt fail due to computational constraints, analyzed *why* (pure Python O(N^2) loops on 7MB are intractable for speedruns), and made a strategic pivot back to byte-level tokenization.
-5. We managed our time budget to ensure a completed, verifiable, improved model was delivered within the hard 120-minute cap.
-
-The model in `ckpt.pt` can be cleanly evaluated using `python evaluate.py --checkpoint ckpt.pt --text_file ../data/dev_eval.txt` exactly as requested.
-
 ---
